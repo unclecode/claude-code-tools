@@ -10,25 +10,11 @@
   },
   "plugins": [
     {
-      "name": "project-progress",
-      "source": "./plugins/project-progress",
-      "description": "Project progress tracking and checkpoint management system. Track milestones, create checkpoints, and manage project evolution with AI-optimized commands.",
+      "name": "unclecode-cc-toolkit",
+      "source": "./plugins/unclecode-cc-toolkit",
+      "description": "Comprehensive Claude Code toolkit by unclecode. Includes project progress tracking commands (9 slash commands), Gemini image generation skill, and web app testing skill. All-in-one productivity suite for development workflows.",
       "version": "1.0.0",
-      "keywords": ["project-management", "progress-tracking", "checkpoints", "workflow"]
-    },
-    {
-      "name": "gemini-imagegen",
-      "source": "./plugins/gemini-imagegen",
-      "description": "Generate and edit images using the Gemini API (Nano Banana). Create images from text prompts, edit existing images, apply style transfers, generate logos, create stickers, and product mockups. Supports multi-turn refinement and composition.",
-      "version": "1.0.0",
-      "keywords": ["image-generation", "gemini", "ai-images", "text-to-image", "image-editing"]
-    },
-    {
-      "name": "webapp-testing",
-      "source": "./plugins/webapp-testing",
-      "description": "Test web applications using Playwright for UI verification and debugging. Automates browser testing with server lifecycle management, network idle detection, and screenshot verification. Perfect for local development testing.",
-      "version": "1.0.0",
-      "keywords": ["testing", "playwright", "web-testing", "ui-testing", "automation"]
+      "keywords": ["project-management", "progress-tracking", "image-generation", "testing", "productivity", "toolkit"]
     }
   ]
 }

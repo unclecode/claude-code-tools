@@ -1,7 +1,7 @@
 {
-  "name": "project-progress",
+  "name": "unclecode-cc-toolkit",
   "version": "1.0.0",
-  "description": "Project progress tracking and checkpoint management system for Claude Code. Track milestones, create checkpoints, and manage project evolution with AI-optimized commands.",
+  "description": "Comprehensive Claude Code toolkit by unclecode. Includes project progress tracking commands, Gemini image generation, and web app testing capabilities. All-in-one productivity suite for development workflows.",
   "author": {
     "name": "unclecode",
     "url": "https://github.com/unclecode"
@@ -12,8 +12,10 @@
   "keywords": [
     "project-management",
     "progress-tracking",
-    "checkpoints",
+    "image-generation",
+    "testing",
+    "productivity",
     "workflow",
-    "productivity"
+    "toolkit"
   ]
 }

@@ -1,21 +1,14 @@
 # Claude Code Tools
 
-A collection of productivity tools and plugins for [Claude Code](https://claude.ai/claude-code) by unclecode. This marketplace provides workflow automation, project management utilities, and development enhancers.
+A comprehensive toolkit for [Claude Code](https://claude.ai/claude-code) by unclecode. All-in-one productivity suite with project management, image generation, and testing capabilities.
 
-## Available Plugins
+## The Plugin: unclecode-cc-toolkit
 
-### Project Progress
+One plugin with everything you need for productive development workflows.
 
-Project progress tracking and checkpoint management system for Claude Code.
+### What's Included
 
-**Features:**
-- Track project milestones and evolution
-- Create and manage checkpoints
-- Resume from previous states
-- AI-optimized progress documentation
-- Clean and migrate project data
-
-**Commands:**
+**Slash Commands (9 commands):**
 - `/pp-init` - Initialize project progress tracking
 - `/pp-add` - Add a checkpoint to project progress
 - `/pp-checkpoint` - Create a project checkpoint
@@ -26,101 +19,64 @@ Project progress tracking and checkpoint management system for Claude Code.
 - `/pp-migrate` - Migrate project progress to new format
 - `/pp-remove` - Remove a checkpoint from project progress
 
-### Gemini Image Generation
+**Skills (2 skills):**
 
-Generate and edit images using the Gemini API (Nano Banana).
+1. **gemini-imagegen**
+   - Generate images from text prompts
+   - Edit existing images
+   - Create logos, mockups, stickers
+   - Multi-turn refinement
+   - Requires `GEMINI_API_KEY`
 
-**Features:**
-- Text-to-image generation
-- Image editing and style transfer
-- Logo creation with text
-- Product mockups and stickers
-- Multi-turn refinement
-- Composition from multiple images
-- Support for both Nano Banana (flash) and Nano Banana Pro models
-
-**Requires:** `GEMINI_API_KEY` environment variable
-
-### Webapp Testing
-
-Test web applications using Playwright for UI verification and debugging.
-
-**Features:**
-- Automated browser testing with Playwright
-- Server lifecycle management
-- Network idle detection
-- DOM inspection patterns
-- Screenshot verification
-- Console log capture
-- Multi-server orchestration
-- Perfect for local development testing
-
-**Technology:** Python + Playwright (headless Chromium)
+2. **webapp-testing**
+   - Automated browser testing with Playwright
+   - Server lifecycle management
+   - Network idle detection
+   - Screenshot verification
+   - Perfect for local development testing
 
 ## Installation
 
 ### Add the Marketplace
 
 ```bash
-/plugin add-marketplace unclecode/claude-code-tools@github
+/plugin marketplace add unclecode/claude-code-tools
 ```
 
-### Install Plugins
+### Install the Toolkit
 
 ```bash
-# Install project progress tracking
-/plugin install project-progress@unclecode/claude-code-tools
-
-# Install Gemini image generation
-/plugin install gemini-imagegen@unclecode/claude-code-tools
-
-# Install webapp testing
-/plugin install webapp-testing@unclecode/claude-code-tools
+/plugin install unclecode-cc-toolkit@unclecode/claude-code-tools
 ```
 
-After installation, restart Claude Code to activate the plugins.
+After installation, restart Claude Code to activate.
 
 ## Usage
 
-Once installed, all commands are available via the slash command interface. Use `/help` to see all available commands.
-
-### Example Workflow
+All commands and skills are immediately available after installation:
 
 ```bash
-# Initialize project tracking
+# Use project progress commands
 /pp-init
 
-# Create a checkpoint
-/pp-checkpoint
-
-# Check progress
-/pp-status
-
-# Resume from a checkpoint
-/pp-resume
+# Skills are invoked automatically by Claude when needed
+"Generate a logo for my startup"
+"Test my Next.js app at localhost:3000"
 ```
 
-## Development
-
-This repository uses a monorepo structure with multiple plugins:
+## Repository Structure
 
 ```
 claude-code-tools/
-├── marketplace.json          # Marketplace configuration
+├── .claude-plugin/
+│   └── marketplace.json
 └── plugins/
-    └── project-progress/     # Project progress plugin
+    └── unclecode-cc-toolkit/
         ├── .claude-plugin/
         │   └── plugin.json
-        └── commands/
+        ├── commands/          # All PP commands
+        └── skills/            # gemini-imagegen, webapp-testing
 ```
-
-## Future Plugins
-
-More tools and utilities coming soon! Stay tuned for:
-- AI workflow automation
-- Code analysis tools
-- Documentation generators
-- And more...
 
 ## Contributing
 
