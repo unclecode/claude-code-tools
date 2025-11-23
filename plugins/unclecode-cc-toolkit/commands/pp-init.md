@@ -2,6 +2,8 @@
 
 Generate a multi-subproject management structure in `.context/project/`.
 
+**Note**: For small projects needing only one subproject, use the name **"main"** as the default.
+
 ## Arguments
 
 $ARGUMENTS

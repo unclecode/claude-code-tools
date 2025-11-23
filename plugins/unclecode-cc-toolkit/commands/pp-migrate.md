@@ -2,6 +2,8 @@
 
 Convert an existing project (with scattered markdown/docs) to use `.context/project/` structure.
 
+**Note**: For small projects needing only one subproject, use the name **"main"** as the default.
+
 ## Arguments
 
 $ARGUMENTS
