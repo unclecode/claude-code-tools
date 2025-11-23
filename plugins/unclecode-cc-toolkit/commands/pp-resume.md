@@ -27,27 +27,23 @@ If not found, inform user: "No project structure found. Run `/pp-init` first."
 ### Step 2: Read Root Context
 
 Read these files in order:
-1. `.context/project/INDEX.md` - Project overview, subprojects
+1. `.context/project/INDEX.md` - Project overview, subprojects, active subproject, high-level status
 2. `.context/project/WORKFLOW.md` - How this system works
-3. `.context/project/STATUS.md` - Current state, active subproject
-4. `.context/project/PRINCIPLES.md` - Methodology and rules
-5. `.context/project/CODEBASE.md` - File map
-6. `.context/project/LESSONS.md` - Past learnings
+3. `.context/project/PRINCIPLES.md` - Methodology and rules
+4. `.context/project/LESSONS.md` - Past learnings
 
 ### Step 3: Read Active Subproject Context
 
-From STATUS.md, identify active subproject, then read:
-1. `.context/project/{active}/INDEX.md`
-2. `.context/project/{active}/STATUS.md`
-3. `.context/project/{active}/TODO.md`
-4. `.context/project/{active}/PRINCIPLES.md`
-5. `.context/project/{active}/CODEBASE.md`
-6. `.context/project/{active}/LESSONS.md`
+From INDEX.md, identify active subproject, then read:
+1. `.context/project/{active}/STATUS.md`
+2. `.context/project/{active}/TODO.md`
+3. `.context/project/{active}/CODEBASE.md`
+4. `.context/project/{active}/LESSONS.md`
+5. `.context/project/{active}/PRINCIPLES.md` (if exists - overrides root)
 
 ### Step 4: Read Recent Changes
 
 Read last 3-5 entries from:
-- `.context/project/CHANGELOG.md`
 - `.context/project/{active}/CHANGELOG.md`
 
 ### Step 5: Process Optional Query

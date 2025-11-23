@@ -20,10 +20,10 @@ Quick overview of project state without loading full context. Shows:
 ### Step 1: Read Status Files
 
 Read these files:
-- `.context/project/STATUS.md`
-- `.context/project/INDEX.md`
+- `.context/project/INDEX.md` (get active subproject + project summary)
 - `.context/project/{active}/STATUS.md`
 - `.context/project/{active}/TODO.md`
+- `.context/project/{active}/CHANGELOG.md` (last 2-3 entries)
 
 ### Step 2: Parse Optional Query
 

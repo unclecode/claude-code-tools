@@ -41,11 +41,13 @@ mkdir -p .context/project/{subproject}/history
 These files are copied as-is (no placeholders to fill):
 
 ```bash
-# Copy WORKFLOW.md and PRINCIPLES.md (fully populated)
+# Copy WORKFLOW.md, PRINCIPLES.md, and LESSONS.md (fully populated)
 cp ~/.claude/commands/pp-init-assets/templates/root/WORKFLOW.md .context/project/
 cp ~/.claude/commands/pp-init-assets/templates/root/PRINCIPLES.md .context/project/
 cp ~/.claude/commands/pp-init-assets/templates/root/LESSONS.md .context/project/
 ```
+
+**Note**: Root level only has WORKFLOW, PRINCIPLES, LESSONS. All tracking files (STATUS, TODO, CHANGELOG, CODEBASE) live in subprojects.
 
 ### Step 4: Process Template Files
 
@@ -55,17 +57,14 @@ For files with `{{PLACEHOLDER}}` markers:
 3. Write to destination
 
 **Root templates to process:**
-- INDEX.md
-- STATUS.md
-- CODEBASE.md
-- CHANGELOG.md
+- INDEX.md (combines project overview + active subproject + high-level TODOs + status summary)
 
 **Subproject templates to process (for each subproject):**
 - INDEX.md
 - STATUS.md
 - TODO.md
 - CHANGELOG.md
-- PRINCIPLES.md
+- PRINCIPLES.md (optional - only if different from root)
 - CODEBASE.md
 - LESSONS.md
 
@@ -106,23 +105,20 @@ Then generate with collected data.
 
 ## Placeholder Reference
 
-### Root Level
+### Root Level (INDEX.md)
 
 | Placeholder | Description |
 |-------------|-------------|
 | `{{DATE}}` | Current date (YYYY-MM-DD) |
 | `{{PROJECT_NAME}}` | Project name |
 | `{{PROJECT_DESCRIPTION}}` | One-line description |
-| `{{SUBPROJECT_TABLE}}` | Markdown table of subprojects |
-| `{{SUBPROJECT_STATUS_TABLE}}` | Status table for STATUS.md |
-| `{{SUBPROJECT_CODEBASE_REFS}}` | List of subproject CODEBASE.md refs |
 | `{{ACTIVE_SUBPROJECT}}` | Name of active subproject |
+| `{{TODO_ITEM_1}}` | High-level TODO item 1 |
+| `{{TODO_ITEM_2}}` | High-level TODO item 2 |
+| `{{TODO_ITEM_3}}` | High-level TODO item 3 |
+| `{{SUBPROJECT_TABLE}}` | Markdown table of subprojects with status/phase/description |
+| `{{SUBPROJECT_STATUS_TABLE}}` | Compact status summary of all subprojects |
 | `{{ENVIRONMENT}}` | Environment details |
-| `{{SHARED_FILES}}` | List of shared files |
-| `{{PROGRESS_CHECKLIST}}` | Overall progress checklist |
-| `{{DEPENDENCIES}}` | Cross-project dependencies table |
-| `{{DECISIONS}}` | Recent decisions table |
-| `{{SUBPROJECTS}}` | Comma-separated subproject names |
 
 ### Subproject Level
 

@@ -37,7 +37,7 @@ ls -lt ~/.claude/projects/-Users-unclecode-devs-{converted-path}/*.jsonl | grep 
 
 ### Step 2: Determine Active Subproject
 
-Read `.context/project/STATUS.md` to identify active subproject.
+Read `.context/project/INDEX.md` to identify active subproject.
 
 ### Step 3: Generate "What To Do Next"
 

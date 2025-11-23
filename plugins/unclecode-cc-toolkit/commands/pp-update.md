@@ -19,7 +19,7 @@ Run after making code changes to keep project documentation in sync. Updates:
 
 ### Step 1: Identify Active Subproject
 
-Read `.context/project/STATUS.md` to get active subproject.
+Read `.context/project/INDEX.md` to get active subproject.
 
 ### Step 2: Parse Query
 

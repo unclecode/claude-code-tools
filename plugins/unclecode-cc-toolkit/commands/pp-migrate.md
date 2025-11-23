@@ -94,19 +94,22 @@ Present findings and ask:
 
 Create `.context/project/` structure using `pp-init-assets/templates/` but:
 
-**Pre-fill instead of placeholders:**
+**Pre-fill root INDEX.md instead of placeholders:**
 
-- **INDEX.md**: Use discovered project name, description from README, list actual subprojects
-- **STATUS.md**: Fill with discovered current state, what's working/blocked
-- **CODEBASE.md**: Populate with actual files discovered
-- **CHANGELOG.md**: Initialize with recent git history summary
+- **INDEX.md**: Use discovered project name, description from README, list actual subprojects, set active subproject, add discovered high-level TODOs, fill subproject status table
+- **WORKFLOW.md**: Copy as-is
+- **PRINCIPLES.md**: Copy as-is
+- **LESSONS.md**: Copy as-is
 
 **For each subproject:**
 
+- **INDEX.md**: Subproject overview
 - **TODO.md**: Convert discovered TODOs from code into task list
 - **STATUS.md**: Actual status from analysis
 - **CODEBASE.md**: Files in that subproject
-- **PRINCIPLES.md**: Copy from root template
+- **CHANGELOG.md**: Initialize with recent git history summary for that subproject
+- **PRINCIPLES.md**: Only if subproject has specific principles (usually skip)
+- **LESSONS.md**: Copy from root template
 
 ### Step 5: Migration Plan (Requires Confirmation)
 

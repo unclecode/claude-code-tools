@@ -7,12 +7,12 @@ How to work with this project management system.
 ## For New Chat Session
 
 ```
-1. Read INDEX.md → understand project
+1. Read INDEX.md → understand project, current state, active subproject
 2. Read WORKFLOW.md → understand system (this file)
-3. Read STATUS.md → know current state, active subproject
-4. Go to active subproject folder
-5. Read subproject's INDEX.md, STATUS.md, TODO.md
-6. Read PRINCIPLES.md (root + subproject)
+3. Read PRINCIPLES.md → understand project principles
+4. Go to active subproject folder (listed in INDEX.md)
+5. Read subproject's STATUS.md, TODO.md, CODEBASE.md, CHANGELOG.md
+6. Read subproject PRINCIPLES.md (if exists, overrides root)
 7. Read LESSONS.md → avoid past mistakes
 ```
 
@@ -20,12 +20,15 @@ How to work with this project management system.
 
 ## After Making Changes
 
+*All updates happen in the active subproject folder:*
+
 1. **Update TODO.md** - Mark tasks done/in-progress
 2. **Update CHANGELOG.md** - Log what changed with usage examples
 3. **Update STATUS.md** - If system state changed
 4. **Update LESSONS.md** - If debugging insight gained
 5. **Update CODEBASE.md** - If files added/modified
-6. **Commit** - Message references TODO ID
+6. **Update root INDEX.md** - If switching active subproject or adding high-level TODOs
+7. **Commit** - Message references TODO ID
 
 ---
 
