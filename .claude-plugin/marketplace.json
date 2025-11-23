@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Claude Code tools and plugins by unclecode - productivity enhancers, project management utilities, and workflow automation",
-    "version": "1.2.0"
+    "version": "1.3.0"
   },
   "plugins": [
     {
       "name": "unclecode-cc-toolkit",
       "source": "./plugins/unclecode-cc-toolkit",
-      "description": "Comprehensive Claude Code toolkit by unclecode. Includes project progress tracking commands (13 slash commands + triage agent), Gemini image generation skill, and web app testing skill. All-in-one productivity suite for development workflows.",
-      "version": "1.2.0",
+      "description": "Comprehensive Claude Code toolkit by unclecode. Includes project progress tracking commands (14 slash commands + triage agent), Gemini image generation skill, webapp testing skill, and API docs fetching. All-in-one productivity suite for development workflows.",
+      "version": "1.3.0",
       "keywords": ["project-management", "progress-tracking", "image-generation", "testing", "productivity", "toolkit"]
     }
   ]
