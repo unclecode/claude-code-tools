@@ -1,0 +1,17 @@
+{
+  "name": "unclecode-tools",
+  "description": "Claude Code tools and plugins by unclecode - productivity enhancers, project management utilities, and workflow automation",
+  "author": {
+    "name": "unclecode",
+    "url": "https://github.com/unclecode"
+  },
+  "plugins": [
+    {
+      "name": "project-progress",
+      "path": "./plugins/project-progress",
+      "description": "Project progress tracking and checkpoint management system. Track milestones, create checkpoints, and manage project evolution with AI-optimized commands.",
+      "version": "1.0.0",
+      "keywords": ["project-management", "progress-tracking", "checkpoints", "workflow"]
+    }
+  ]
+}

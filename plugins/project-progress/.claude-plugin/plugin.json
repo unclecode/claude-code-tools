@@ -1,0 +1,19 @@
+{
+  "name": "project-progress",
+  "version": "1.0.0",
+  "description": "Project progress tracking and checkpoint management system for Claude Code. Track milestones, create checkpoints, and manage project evolution with AI-optimized commands.",
+  "author": {
+    "name": "unclecode",
+    "url": "https://github.com/unclecode"
+  },
+  "homepage": "https://github.com/unclecode/claude-code-tools",
+  "repository": "https://github.com/unclecode/claude-code-tools",
+  "license": "MIT",
+  "keywords": [
+    "project-management",
+    "progress-tracking",
+    "checkpoints",
+    "workflow",
+    "productivity"
+  ]
+}
