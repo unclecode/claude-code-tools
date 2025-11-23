@@ -26,6 +26,37 @@ Project progress tracking and checkpoint management system for Claude Code.
 - `/pp-migrate` - Migrate project progress to new format
 - `/pp-remove` - Remove a checkpoint from project progress
 
+### Gemini Image Generation
+
+Generate and edit images using the Gemini API (Nano Banana).
+
+**Features:**
+- Text-to-image generation
+- Image editing and style transfer
+- Logo creation with text
+- Product mockups and stickers
+- Multi-turn refinement
+- Composition from multiple images
+- Support for both Nano Banana (flash) and Nano Banana Pro models
+
+**Requires:** `GEMINI_API_KEY` environment variable
+
+### Webapp Testing
+
+Test web applications using Playwright for UI verification and debugging.
+
+**Features:**
+- Automated browser testing with Playwright
+- Server lifecycle management
+- Network idle detection
+- DOM inspection patterns
+- Screenshot verification
+- Console log capture
+- Multi-server orchestration
+- Perfect for local development testing
+
+**Technology:** Python + Playwright (headless Chromium)
+
 ## Installation
 
 ### Add the Marketplace
@@ -39,6 +70,12 @@ Project progress tracking and checkpoint management system for Claude Code.
 ```bash
 # Install project progress tracking
 /plugin install project-progress@unclecode/claude-code-tools
+
+# Install Gemini image generation
+/plugin install gemini-imagegen@unclecode/claude-code-tools
+
+# Install webapp testing
+/plugin install webapp-testing@unclecode/claude-code-tools
 ```
 
 After installation, restart Claude Code to activate the plugins.

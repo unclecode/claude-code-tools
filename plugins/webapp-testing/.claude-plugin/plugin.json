@@ -1,0 +1,20 @@
+{
+  "name": "webapp-testing",
+  "version": "1.0.0",
+  "description": "Test web applications using Playwright for UI verification and debugging. Automates browser testing with server lifecycle management, network idle detection, DOM inspection, and screenshot verification. Perfect for local development testing.",
+  "author": {
+    "name": "Anthropic",
+    "url": "https://www.anthropic.com"
+  },
+  "homepage": "https://github.com/anthropics/skills/tree/main/webapp-testing",
+  "repository": "https://github.com/anthropics/skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "testing",
+    "playwright",
+    "web-testing",
+    "ui-testing",
+    "automation",
+    "browser-testing"
+  ]
+}
