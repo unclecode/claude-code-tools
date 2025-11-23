@@ -1,28 +1,31 @@
 {
   "name": "unclecode-tools",
-  "description": "Claude Code tools and plugins by unclecode - productivity enhancers, project management utilities, and workflow automation",
-  "author": {
+  "owner": {
     "name": "unclecode",
-    "url": "https://github.com/unclecode"
+    "email": "unclecode@github.com"
+  },
+  "metadata": {
+    "description": "Claude Code tools and plugins by unclecode - productivity enhancers, project management utilities, and workflow automation",
+    "version": "1.0.0"
   },
   "plugins": [
     {
       "name": "project-progress",
-      "path": "./plugins/project-progress",
+      "source": "./plugins/project-progress",
       "description": "Project progress tracking and checkpoint management system. Track milestones, create checkpoints, and manage project evolution with AI-optimized commands.",
       "version": "1.0.0",
       "keywords": ["project-management", "progress-tracking", "checkpoints", "workflow"]
     },
     {
       "name": "gemini-imagegen",
-      "path": "./plugins/gemini-imagegen",
+      "source": "./plugins/gemini-imagegen",
       "description": "Generate and edit images using the Gemini API (Nano Banana). Create images from text prompts, edit existing images, apply style transfers, generate logos, create stickers, and product mockups. Supports multi-turn refinement and composition.",
       "version": "1.0.0",
       "keywords": ["image-generation", "gemini", "ai-images", "text-to-image", "image-editing"]
     },
     {
       "name": "webapp-testing",
-      "path": "./plugins/webapp-testing",
+      "source": "./plugins/webapp-testing",
       "description": "Test web applications using Playwright for UI verification and debugging. Automates browser testing with server lifecycle management, network idle detection, and screenshot verification. Perfect for local development testing.",
       "version": "1.0.0",
       "keywords": ["testing", "playwright", "web-testing", "ui-testing", "automation"]
