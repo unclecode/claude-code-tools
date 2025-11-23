@@ -1,6 +1,6 @@
 {
   "name": "unclecode-cc-toolkit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Comprehensive Claude Code toolkit by unclecode. Includes project progress tracking commands, Gemini image generation, and web app testing capabilities. All-in-one productivity suite for development workflows.",
   "author": {
     "name": "unclecode",
