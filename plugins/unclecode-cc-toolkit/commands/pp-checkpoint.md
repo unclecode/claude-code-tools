@@ -6,14 +6,20 @@ Save current chat session state and prepare instructions for next session.
 
 $ARGUMENTS
 
-Optional query to specify what should happen next.
+Optional query to add extra guidance for the next session. This query will be incorporated into the "What To Do Next" section of NEXT.md.
+
+Examples:
+- `/pp-checkpoint focus on fixing the auth bug first`
+- `/pp-checkpoint user will provide new API docs tomorrow`
+- `/pp-checkpoint skip T260, move directly to T262`
 
 ## Purpose
 
 Called at the end of a chat session (or before hitting token limits) to:
-1. Create ultra-compact summary of current session
-2. Save "what to do next" instructions for new session
-3. Link to full chat transcript (with warnings about size)
+1. Create compact summary of current session (history file)
+2. Save comprehensive "what to do next" instructions (NEXT.md)
+3. Optionally create AI-compressed dump of chat history
+4. Link to full chat transcript
 
 ## Execution Instructions
 
@@ -39,11 +45,35 @@ ls -lt ~/.claude/projects/-Users-unclecode-devs-{converted-path}/*.jsonl | grep 
 
 Read `.context/project/INDEX.md` to identify active subproject.
 
-### Step 3: Generate "What To Do Next"
+### Step 3: Ask User About Chat History Dump
 
-**If user provided query:**
-- Use their query as primary guidance
-- Enhance with context from current state
+**ALWAYS ask the user:**
+
+```
+Before saving checkpoint, do you want me to create a compressed dump of this chat session?
+
+This will use AI to compress the full conversation into a readable summary (~5-10% of original size) that captures all important details, decisions, and code changes.
+
+Options:
+1. **Yes** - Create compressed dump (takes ~30-60 seconds)
+2. **No** - Skip dump, just save checkpoint files
+
+Note: The raw .jsonl transcript is always available for grep/search regardless.
+```
+
+**If user says Yes:**
+- Run the `/compress-chat` command on the current session
+- Save compressed output to `.context/project/{active}/history/{uuid}-{YYYY-MM-DD}-dump.md`
+
+**If user says No:**
+- Skip dump creation, proceed to next step
+
+### Step 4: Process User Query (if provided)
+
+**If user provided query in $ARGUMENTS:**
+- Parse the query for guidance/instructions
+- This becomes the PRIMARY content for "What To Do Next" section
+- Enhance with context from current state (TODO.md, STATUS.md)
 
 **If NO query provided:**
 - Analyze current state:
@@ -52,11 +82,11 @@ Read `.context/project/INDEX.md` to identify active subproject.
   - Read `STATUS.md` - current focus
 - Generate clear next actions
 
-### Step 4: Create History Summary (Ultra-Compact)
+### Step 5: Create History Summary (Compact)
 
 **Location**: `.context/project/{active}/history/{uuid}-{YYYY-MM-DD}.md`
 
-**Content** (token-efficient, ~200-400 tokens for main summary + warnings):
+**Content** (compact, ~200-400 tokens):
 ```markdown
 # Chat Session {uuid}
 **Date**: {YYYY-MM-DD HH:MM}
@@ -108,43 +138,76 @@ wc -l {path-to-file}
 ```
 ```
 
-**Important**: Keep main summary VERY compact. Transcript warnings go at end.
-
-### Step 5: Create/Update NEXT.md (Minimal)
+### Step 6: Create/Update NEXT.md (Comprehensive)
 
 **Location**: `.context/project/{active}/NEXT.md`
 
-**Content** (keep minimal, link to history for details):
+**Purpose**: NEXT.md is the PRIMARY file a new AI session reads. It must contain enough actionable information for the new session to work effectively WITHOUT needing to read the history file.
+
+**Content** (comprehensive, actionable):
 ```markdown
 # Next Chat Session
-
-## What To Do Next
-
-{AI-generated guidance OR user's query}
-
-Examples:
-- User will fill knowledge base at webhook/maya_knowledge.md
-- Begin T010: Node.js project setup
-- Continue implementation of LLMService
-- Review PRD and provide feedback
 
 ## Previous Session Context
 
 **Session**: {uuid} ({YYYY-MM-DD})
-
-See: [history/{uuid}-{YYYY-MM-DD}.md](history/{uuid}-{YYYY-MM-DD}.md)
-
-## Current State
+**History**: [history/{uuid}-{YYYY-MM-DD}.md](history/{uuid}-{YYYY-MM-DD}.md)
+{If dump exists: **Dump**: [history/{uuid}-{YYYY-MM-DD}-dump.md](history/{uuid}-{YYYY-MM-DD}-dump.md)}
 
 **Active Phase**: {from STATUS.md}
-**Pending Tasks**: {high-priority tasks from TODO.md}
-**Blockers**: {if any}
-**Last Updated**: {files recently modified}
+**Pending Tasks**: {from TODO.md}
+**Last Modified**: {files changed this session}
+
+---
+
+## What To Do Next
+
+{If user provided query: Use their query as PRIMARY guidance, enhanced with context}
+{If no query: AI-generated guidance based on TODO.md, STATUS.md, CHANGELOG.md}
+
+### Immediate Tasks
+1. Task with context
+2. Another task
+
+### Quick Start Commands
+```bash
+{Common commands the new session will need}
 ```
 
-**Important**: Keep NEXT.md minimal. All detailed context (including full transcript warnings) goes in the history file.
+---
 
-### Step 6: Output Confirmation
+## Key Reference Data
+
+{Include any important data/tables the new session needs - benchmarks, configs, etc.}
+
+---
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| path/to/file | What it does |
+
+---
+
+## Session Achievements (What Was Done)
+
+- What was accomplished this session
+- Tasks completed
+- Decisions made
+
+---
+
+## Notes & Gotchas
+
+- Important technical note
+- Gotcha to avoid wasting time
+- Environment variable or config reminder
+```
+
+**Important**: NEXT.md should be COMPREHENSIVE. The new AI session should be able to start working immediately after reading it.
+
+### Step 7: Output Confirmation
 
 Tell user:
 ```
@@ -153,6 +216,7 @@ Tell user:
 Files created/updated:
 - .context/project/{active}/NEXT.md (instructions for next session)
 - .context/project/{active}/history/{uuid}-{date}.md (session summary)
+{If dump created: - .context/project/{active}/history/{uuid}-{date}-dump.md (compressed chat)}
 
 When starting next session:
 1. Run `/pp-resume` to load context + next steps
@@ -166,8 +230,10 @@ Session ID: {uuid}
 - Always create history/ directory if it doesn't exist
 - NEXT.md is overwritten each time (always shows latest)
 - History files are never overwritten (one per session)
-- Keep summaries ultra-compact to save tokens
-- Full transcript path is for rare cases when specific detail needed
+- NEXT.md should be COMPREHENSIVE - new AI session's primary reference
+- History file is COMPACT - backup/deep-dive reference only
+- User query from $ARGUMENTS takes priority for "What To Do Next"
+- Always ask about dump before proceeding
 
 ## Error Handling
 
